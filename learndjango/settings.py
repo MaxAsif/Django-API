@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +28,7 @@ SECRET_KEY = '-e+f+!o430b5^nuic+pv-)@dz&a9^9cklmeo7chnz*8&cccsso'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radiant-temple-19339.herokuapp.com']
+ALLOWED_HOSTS = ['radiant-temple-19339.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -131,3 +131,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
