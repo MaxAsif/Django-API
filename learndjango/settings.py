@@ -28,7 +28,7 @@ SECRET_KEY = '-e+f+!o430b5^nuic+pv-)@dz&a9^9cklmeo7chnz*8&cccsso'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['radiant-temple-19339.herokuapp.com']
 
 
 # Application definition
