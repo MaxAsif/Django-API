@@ -12,9 +12,16 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    password = serializers.CharField(write_only=True)
     posts = serializers.HyperlinkedRelatedField(
         many=True, view_name='post-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'posts']
+        fields = ['id', 'username', 'password', 'posts']
+
+    def create(self, validated_data):
+        user = super(UserSerializer, self).create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
